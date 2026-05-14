@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0F172A;
+  --color-card: #111827;
+  --color-primary: #3B82F6;
+  --color-accent: #22C55E;
+  --color-text: #F8FAFC;
+  --color-muted: #64748B;
+  --font-sans: 'Inter', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-text font-sans antialiased;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-card border border-slate-800 rounded-xl p-6 shadow-lg;
+  }
+  
+  .btn-primary {
+    @apply bg-primary hover:bg-blue-600 text-white font-medium px-4 py-2 rounded-lg transition-all active:scale-95;
+  }
+  
+  .btn-outline {
+    @apply border border-slate-700 hover:bg-slate-800 text-text font-medium px-4 py-2 rounded-lg transition-all active:scale-95;
+  }
+
+  .input-field {
+    @apply bg-slate-900 border border-slate-800 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary/50 text-text;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-800 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-700;
+}
