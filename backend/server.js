@@ -7,7 +7,11 @@ const connectDB = require('./config/db');
 dotenv.config();
 
 // Connect to database
-connectDB();
+connectDB().then(() => {
+  // Run seed data
+  const seedData = require('./seed');
+  seedData();
+});
 
 const app = express();
 
@@ -15,7 +19,14 @@ const app = express();
 app.use(express.json());
 
 // Enable CORS
-app.use(cors());
+app.use(cors({
+  origin: [
+    'https://volontyor-seven.vercel.app', 
+    'https://buloqboshi-volontyor.vercel.app',
+    'http://localhost:5173'
+  ],
+  credentials: true
+}));
 
 // Route files
 const auth = require('./routes/auth');
