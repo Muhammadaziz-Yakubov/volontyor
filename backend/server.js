@@ -21,7 +21,7 @@ app.use(express.json());
 // Enable CORS
 app.use(cors({
   origin: [
-    'https://volontyor-seven.vercel.app', 
+    'https://volontyor-seven.vercel.app',
     'https://buloqboshi-volontyor.vercel.app',
     'http://localhost:5173'
   ],
